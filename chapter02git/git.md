@@ -60,6 +60,6 @@ $ git config --global user.email "email@example.com"
 > 瘳雪峰老师的资料整理。[详情请见--瘳雪峰的官网][3]
 
 
-  [1]: http://7u2ss1.com1.z0.glb.clouddn.com/0.jpg
-  [2]: http://7u2ss1.com1.z0.glb.clouddn.com/0%20%281%29.jpg
+  [1]: images/gitinstall/2015-6-11-1.jpg
+  [2]: images/gitinstall/2015-6-11-2.jpg
   [3]: http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000/00137396287703354d8c6c01c904c7d9ff056ae23da865a000
