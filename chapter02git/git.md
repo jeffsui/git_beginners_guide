@@ -1,28 +1,40 @@
 # 基本git安装
 
-> 引用 [瘳雪峰的官方网站--安装Git](http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000/00137396287703354d8c6c01c904c7d9ff056ae23da865a000 "安装Git") 
-
 最早Git是在Linux上开发的，很长一段时间内，Git也只能在Linux和Unix系统上跑。不过，慢慢地有人把它移植到了Windows上。现在，Git可以在Linux、Unix、Mac和Windows这几大平台上正常运行了。
 
 要使用Git，第一步当然是安装Git了。根据你当前使用的平台来阅读下面的文字：
 
-在**Linux**上安装**Git**
+## 在**Linux**上安装**Git**
 
-首先，你可以试着输入`git`，看看系统有没有安装Git：
-```
-$ git
-The program 'git' is currently not installed. You can install it by typing:
-sudo apt-get install git
-```
-像上面的命令，有很多Linux会友好地告诉你Git没有安装，还会告诉你如何安装Git。
+1. 首先，你可以试着输入`git`，看看系统有没有安装Git：
+    ```
+    $ git
+    The program 'git' is currently not installed. You can install it by typing:
+    sudo apt-get install git
+    ```
 
-如果你碰巧用Debian或Ubuntu Linux，通过一条`sudo apt-get install git`就可以直接完成Git的安装，非常简单。
+    像上面的命令，有很多Linux会友好地告诉你Git没有安装，还会告诉你如何安装Git。
 
-老一点的Debian或Ubuntu Linux，要把命令改为`sudo apt-get install git-core`，因为以前有个软件也叫GIT（GNU Interactive Tools），结果Git就只能叫git-core了。由于Git名气实在太大，后来就把GNU Interactive Tools改成`gnuit`，`git-core`正式改为`git`。
+    如果你碰巧用Debian或Ubuntu Linux，通过一条`sudo apt-get install git`就可以直接完成Git的安装，非常简单。
 
-如果是其他Linux版本，可以直接通过源码安装。先从Git官网下载源码，然后解压，依次输入：./config，make，sudo make install这几个命令安装就好了。
+    > 老一点的Debian或Ubuntu Linux，要把命令改为`sudo apt-get install git-core`，因为以前有个软件也叫GIT（GNU Interactive Tools），结果Git就只能叫git-core了。由于Git名气实在太大，后来就把GNU Interactive Tools改成`gnuit`，`git-core`正式改为`git`。
 
-在**Mac OS X**上安装**Git**
+2. 如果是其他 Linux 发行版，一般包管理系统里都会带有这个包，可用不同的命令来安装。
+    > 如 fedora，可以直接 `sudo dnf install git` 或者 `sudo yum install git`
+    > 如 archlinux，可以用 'sudo pacman -S git'来安装。
+
+
+3. 现在 Linux 发行版的包管理系统搭载的不一定是最新版的 Git。如果需要最新版的 Git，那可以自行编译。
+    首先要安装足够的软件包，即所谓的依赖。
+    ```        
+    Ubuntu: sudo apt-get build-dep git
+    Fedora: sudo dnf builddep git 或者是 sudo yum builddep git
+    ```
+
+    然后到 [Git 源码包网站][4] 上去下载最新版压缩包，下来后解压到一个文件夹里。
+    之后就是 `./configure`，`make all`（如果要文档，可以 `make all doc`），最后要 `sudo make install`。
+
+## 在**Mac OS X**上安装**Git**
 
 如果你正在使用Mac做开发，有两种安装Git的方法。
 
@@ -34,7 +46,7 @@ sudo apt-get install git
 
 Xcode是Apple官方IDE，功能非常强大，是开发Mac和iOS App的必选装备，而且是免费的！
 
-在**Windows**上安装**Git**
+## 在**Windows**上安装**Git**
 
 实话实说，Windows是最烂的开发平台，如果不是开发Windows游戏或者在IE里调试页面，一般不推荐用Windows。不过，既然已经上了微软的贼船，也是有办法安装Git的。
 
@@ -46,20 +58,49 @@ msysgit是Windows版的Git，从`http://msysgit.github.io/`下载，然后按默
 
 ![WINDOWS安装][2]
 
-安装完成后，还需要最后一步设置，在命令行输入：
+几个常用的平台环境下安装git的方法都简单列出来了。
+
+> 以上基本引用 [瘳雪峰的官方网站--安装Git][7]。
+
+另注：
+> Git 2.0的 Windows 移植版本也在积极的开发中，只不过现在还不稳定，不能拿出来大规模使用。有兴趣的人可以去关注一下 [git for windows][6]。
+
+# Git 基本设置
+安装完成后，还需要最后一步基本的设置，在命令行输入：
 ```
 $ git config --global user.name "Your Name"
 $ git config --global user.email "email@example.com"
 ```
 因为Git是分布式版本控制系统，所以，每个机器都必须自报家门：你的名字和Email地址。你也许会担心，如果有人故意冒充别人怎么办？这个不必担心，首先我们相信大家都是善良无知的群众，其次，真的有冒充的也是有办法可查的。
 
-注意`git config`命令的`--global`参数，用了这个参数，表示你这台机器上所有的Git仓库都会使用这个配置，当然也可以对某个仓库指定不同的用户名和Email地址。
+> 其中有一个办法是使用 gnupg 制作一个专用于 Git 提交的密钥，具体怎么做，这里不作介绍。
+> 有兴趣的可以查看[Pro Git][5]。
+> 密钥制作好后，设置时就直接 `$ git config --global user.signingkey XXXXXXXX`，就设置了唯一的用户对应的密钥。
+> 但git 1.x的版本并没有自动在提交时添加密钥的选项，提交时需要手动添加 -S 参数。
+> 而在git 2.x加入一个选项， `$ git config --global commit.gpgsign true`，满足自动加密钥签名。
 
-几个常用的环境下安装git的方法都简单列出来了。最后感谢
+Git 的设置是比较复杂的，1.x 的版本跟 2.x 的版本有些差异。但总的来说，要设置的一般也就那么几个，用户名、邮件地址、跨平台换行符的问题、合并策略和一些别名（即简单的命令组合，比如把 `checkout` 缩写成 `co`）等。
 
-> 瘳雪峰老师的资料整理。[详情请见--瘳雪峰的官网][3]
+1. `git config` 有多级分层的设置，层次从高到低是 `系统` -- `用户` -- `仓库` -- `文件` 。
+    + `--system` 参数，是系统级别的设置，表示操作系统的所有用户的默认设置。
+    + `--global` 参数，是用户级别的设置，表示操作系统上所有的属于你这个用户的 Git 仓库都会默认使用的配置，当然也可以对某个仓库指定不同的用户名和Email地址。
+    + `--local` 参数或者无参数，是仓库级别的设置且在仓库目录里设置。
+    + `-f` 或 `--file` 参数，是文件级别的设置，指定文件作为设置，覆盖环境变量 `GIT_CONFIG`。
+ 
+2. 设置文件列表
+    + `$(prefix)/etc/gitconfig` 是系统级别的设置文件
+    + `$XDG_CONFIG_HOME/git/config` 这个是二级用户级别设置文件，一般不推荐创建与设置
+    + `~/.gitconfig` 这个是用户级别的设置文件
+    + `$GIT_DIR/config` 仓库级别的设置文件
+    + 优先级 `仓库 > 用户 > 二级用户 > 系统`
+
+
 
 
   [1]: images/gitinstall/2015-6-11-1.jpg
   [2]: images/gitinstall/2015-6-11-2.jpg
   [3]: http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000/00137396287703354d8c6c01c904c7d9ff056ae23da865a000
+  [4]: https://www.kernel.org/pub/software/scm/git/
+  [5]: https://git-scm.com/book/tr/v2/Git-Tools-Signing-Your-Work
+  [6]: https://github.com/git-for-windows/git/releases
+  [7]: http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000/00137396287703354d8c6c01c904c7d9ff056ae23da865a000 "安装Git"
