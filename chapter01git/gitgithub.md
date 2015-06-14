@@ -151,6 +151,7 @@ Git 是个版本控制工具，运行速度快，最为出色的是合并追踪�
     (以上摘自 [pro git][16])
 
     > [Git 目录结构][14]
+    > 
     > 1. branches : 存储分支
     > 2. hooks：存储钩子的文件夹
     > 3. logs：存储日志的文件夹
@@ -198,16 +199,16 @@ GitHub 最主要的用途是代码托管。除了这个之外，它还支持以�
 [6]: https://git.wiki.kernel.org/index.php/GitSvnComparison
 [7]: https://zh.wikipedia.org/wiki/Git#.E5.91.BD.E5.90.8D.E6.9D.A5.E6.BA.90
 [8]: https://git.wiki.kernel.org/index.php/Git_FAQ#Why_the_.27Git.27_name.3F
-[9]: snapshots.png "随着时间推移，把项目的数据存储成快照（snapshots）"
+[9]: images/snapshots.png "随着时间推移，把项目的数据存储成快照（snapshots）"
 [10]: https://git-scm.com/book/en/v2/Getting-Started-Git-Basics
 [11]: https://github.com/blog/1986-announcing-git-large-file-storage-lfs
 [12]: https://git-lfs.github.com/
-[13]: areas.png "工作目录、暂存区域和 Git 目录"
+[13]: images/areas.png "工作目录、暂存区域和 Git 目录"
 [14]: https://www.siteground.com/tutorials/git/directory.htm
 [15]: http://ndpsoftware.com/git-cheatsheet.html
 [16]: https://git-scm.com/book/en/v2/Getting-Started-Git-Basics#The-Three-States
 [17]: https://github.com
 [18]: https://en.wikipedia.org/wiki/GitHub
 [19]: https://github.com/about
-[20]: githublogo.png
-[21]: gitlogo.png
+[20]: images/githublogo.png
+[21]: images/gitlogo.png
