@@ -26,7 +26,7 @@
 
 3. 现在 Linux 发行版的包管理系统搭载的不一定是最新版的 Git。如果需要最新版的 Git，那可以自行编译。
     首先要安装足够的软件包，即所谓的依赖。
-    ```        
+    ```
     Ubuntu: sudo apt-get build-dep git
     Fedora: sudo dnf builddep git 或者是 sudo yum builddep git
     ```
@@ -86,7 +86,7 @@ Git 的设置是比较复杂的，1.x 的版本跟 2.x 的版本有些差异。�
     + `--global` 参数，是用户级别的设置，表示操作系统上所有的属于你这个用户的 Git 仓库都会默认使用的配置，当然也可以对某个仓库指定不同的用户名和Email地址。
     + `--local` 参数或者无参数，是仓库级别的设置且在仓库目录里设置。
     + `-f` 或 `--file` 参数，是文件级别的设置，指定文件作为设置，覆盖环境变量 `GIT_CONFIG`。
- 
+
 2. 设置文件列表
     + `$(prefix)/etc/gitconfig` 是系统级别的设置文件
     + `$XDG_CONFIG_HOME/git/config` 这个是二级用户级别设置文件，一般不推荐创建与设置
