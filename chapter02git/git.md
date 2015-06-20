@@ -48,22 +48,21 @@ Xcode是Apple官方IDE，功能非常强大，是开发Mac和iOS App的必选装
 
 ## 在**Windows**上安装**Git**
 
-实话实说，Windows是最烂的开发平台，如果不是开发Windows游戏或者在IE里调试页面，一般不推荐用Windows。不过，既然已经上了微软的贼船，也是有办法安装Git的。
-
-Windows下要使用很多Linux/Unix的工具时，需要Cygwin这样的模拟环境，Git也一样。Cygwin的安装和配置都比较复杂，就不建议你折腾了。不过，有高人已经把模拟环境和Git都打包好了，名叫msysgit，只需要下载一个单独的exe安装程序，其他什么也不用装，绝对好用。
-
-msysgit是Windows版的Git，从`http://msysgit.github.io/`下载，然后按默认选项安装即可。
+### 安装版 MsysGit
+Windows 下要使用 Linux/Unix 的工具时，需要 Cygwin 或者 msys 这样的 unix 模拟环境，Git 也一样。Cygwin 的安装和配置都比较复杂，折腾的时间估计会比较长。不过，有高人已经把模拟环境和 Git 都打包好了，名叫 msysgit，只需要下载一个单独的exe安装程序，从 `http://msysgit.github.io/` 下载，然后按默认选项安装即可。
 
 安装完成后，在开始菜单里找到“Git”->“Git Bash”，蹦出一个类似命令行窗口的东西，就说明Git安装成功！
 
 ![WINDOWS安装][2]
 
-几个常用的平台环境下安装git的方法都简单列出来了。
+### 便携版 MsysGit
 
-> 以上基本引用 [瘳雪峰的官方网站--安装Git][7]。
+便携版是给相对熟悉 Windows 命令行和环境变量的人使用的。从上面的那个网址中下载来 PortableGit 后，用 7-zip 或者直接双击打开后，解压到一个**非中文且无空格的**的路径，然后把路径中的 cmd 文件夹加入环境变量 PATH 中。**注：请注意，不懂得环境变量或者只想用鼠标操作的新手不建议用这种方式来使用 Git**。
+
+> 以上部分引用 [瘳雪峰的官方网站--安装Git][7]。
 
 另注：
-> Git 2.0的 Windows 移植版本也在积极的开发中，只不过现在还不稳定，不能拿出来大规模使用。有兴趣的人可以去关注一下 [git for windows][6]。
+> Git 2.0的 Windows 移植版本也在积极的开发中，只不过现在还不算很稳定。有兴趣的人可以去关注一下 [git for windows][6]。
 
 # Git 基本设置
 安装完成后，还需要最后一步基本的设置，在命令行输入：
@@ -74,7 +73,7 @@ $ git config --global user.email "email@example.com"
 因为Git是分布式版本控制系统，所以，每个机器都必须自报家门：你的名字和Email地址。你也许会担心，如果有人故意冒充别人怎么办？这个不必担心，首先我们相信大家都是善良无知的群众，其次，真的有冒充的也是有办法可查的。
 
 > 其中有一个办法是使用 gnupg 制作一个专用于 Git 提交的密钥，具体怎么做，这里不作介绍。
-> 有兴趣的可以查看[Pro Git][5]。
+> 有兴趣的可以查看 [Pro Git][5]。
 > 密钥制作好后，设置时就直接 `$ git config --global user.signingkey XXXXXXXX`，就设置了唯一的用户对应的密钥。
 > 但git 1.x的版本并没有自动在提交时添加密钥的选项，提交时需要手动添加 -S 参数。
 > 而在git 2.x加入一个选项， `$ git config --global commit.gpgsign true`，满足自动加密钥签名。
