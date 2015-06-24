@@ -7,4 +7,11 @@
    * [基本git安装](chapter02git/git.md)
    * [gitosis与gitolite](chapter02git/gitosisgitolite.md)
    * [gitlab](chapter02git/gitlab.md)
-
+* [第3章Git操作](chapter03git/README.md)
+   * [Git基本工作流程](chapter03git/git-basic-workflow.md)
+   * [创建仓库](chapter03git/create_repo.md)
+   * [git基本操作](chapter03git/git-status.md)
+   * [git查看提交历史](chapter03git/git-log.md)
+   * [git标签](chapter03git/git-tags.md)
+   * [git远程仓库](chapter03git/git-remote-repo.md)
+   * [git个性化设置](chapter03git/git-config.md)
