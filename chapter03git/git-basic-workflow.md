@@ -9,3 +9,6 @@
 * 提交修改。
 * 在修改完成后，如果发现错误，可以撤回提交并再次修改并提交。
 
+如下图所示:
+![git](images/git-basic-workflow/life_cycle.png)
+
